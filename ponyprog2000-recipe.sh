@@ -42,7 +42,7 @@ EOF
 
 cat >AppRun <<EOF
 #!/bin/sh
-PAR=\$(dirname "$(readlink -f "$0")")
+PAR=\$(dirname "\$(readlink -f "\$0")")
 echo \$PAR
 exec "\$PAR/ponyprog2000" "\$@"
 EOF
@@ -51,4 +51,3 @@ chmod +x AppRun
 cd $PROJDIR
 rm ponyprog2000.AppImage || true
 ./AppImageAssistant* ponyprog2000.AppDir ponyprog2000.AppImage
-chmod +x ponyprog2000.AppImage
