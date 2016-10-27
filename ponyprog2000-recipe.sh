@@ -3,6 +3,11 @@
 # Install build deps if needed
 #sudo apt install build-essential libxmu-dev libxaw7-dev libxt-dev
 
+if [ ! $(ls | grep AppImageAssistant*AppImage) ]; then
+        echo "Please copy the AppImageAssistant_X-x86_64.AppImage file here"
+        exit 1
+fi
+
 PROJDIR=$PWD
 
 rm -rf ~/PonyProg2000-2.08c || true
@@ -50,4 +55,5 @@ chmod +x AppRun
 
 cd $PROJDIR
 rm ponyprog2000.AppImage || true
+chmod +x AppImageAssistant*
 ./AppImageAssistant* ponyprog2000.AppDir ponyprog2000.AppImage
